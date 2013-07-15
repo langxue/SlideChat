@@ -24,8 +24,9 @@
 
 
 - (void) createSlideIns {
-    
+    //如果是局部变量，为什么在方法调用完后这些View还存在？    
     TCSlideView *downSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
+    //因为他们被加入 self.view里了
 	[downSlideIn showWithTimer:1.25 inView:self.view from:SlideInViewBot bounce:YES];
     
 	TCSlideView *leftSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
@@ -36,6 +37,9 @@
     
 	TCSlideView *topSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
 	[topSlideIn showWithTimer:1.25 inView:self.view from:SlideInViewTop bounce:YES];
+    
+    //在这个类里我不知道哪个slideView被点击，因此也不能传入下面这个东西来导航
+    self.navigationController;
     
 }
 
