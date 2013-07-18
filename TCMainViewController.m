@@ -8,6 +8,7 @@
 
 #import "TCMainViewController.h"    
 #import "TCSlideView.h"
+#import "TCChatViewController.h"
 
 
 @implementation TCMainViewController
@@ -17,37 +18,49 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
+        self.tvc = [[TCChatViewController alloc] init];
     }
     return self;
 }
 
 
-- (void) createSlideIns {
-    //如果是局部变量，为什么在方法调用完后这些View还存在？    
+- (void)ShiftTo:(UIViewController *)viewController{
+    [self.navigationController setNavigationBarHidden:NO];
+    //[[self navigationController] pushViewController:vc animated:YES];
+    CATransition *animation = [CATransition animation];
+	[animation setDuration:0.3];
+	[animation setType: kCATransitionMoveIn];
+	[animation setSubtype: kCATransitionFromTop];
+	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+    
+    [self.navigationController pushViewController:viewController animated:NO];
+    
+    [self.navigationController.view.layer addAnimation:animation forKey:nil];
+}
+
+- (void) createSlideIn:(UIView *) view {
+    //如果是局部变量，为什么在方法调用完后这些View还存在？
     TCSlideView *downSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
     //因为他们被加入 self.view里了
-	[downSlideIn showWithTimer:1.25 inView:self.view from:SlideInViewBot bounce:YES];
+	[downSlideIn showWithTimer:1.25 inView:view from:SlideInViewBot bounce:YES];
     
 	TCSlideView *leftSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
-	[leftSlideIn showWithTimer:1 inView:self.view from:SlideInViewLeft bounce:NO];
+	[leftSlideIn showWithTimer:1 inView:view from:SlideInViewLeft bounce:NO];
     
 	TCSlideView *rightSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
-	[rightSlideIn showWithTimer:1.5 inView:self.view from:SlideInViewRight bounce:NO];
+    rightSlideIn.delegate = self;
+    rightSlideIn.tvc = self.tvc;
+	[rightSlideIn showWithTimer:1.5 inView:view from:SlideInViewRight bounce:NO];
     
 	TCSlideView *topSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
-	[topSlideIn showWithTimer:1.25 inView:self.view from:SlideInViewTop bounce:YES];
-    
-    //在这个类里我不知道哪个slideView被点击，因此也不能传入下面这个东西来导航
-    self.navigationController;
-    
+	[topSlideIn showWithTimer:1.25 inView:view from:SlideInViewTop bounce:YES];
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self createSlideIns];
+    [self createSlideIn:self.view];
 }
 
 
@@ -57,6 +70,10 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
 
 
 @end

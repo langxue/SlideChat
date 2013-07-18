@@ -17,8 +17,10 @@
 
     TCMainViewController *mvc = [[TCMainViewController alloc] init];
     
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mvc];
+    [navController setNavigationBarHidden:YES];
     
-    self.window.rootViewController = mvc;
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }

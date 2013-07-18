@@ -7,16 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TCSlideView.h"
+@class TCChatViewController;
 
-@class TCSlideView;
 
 
-@interface TCMainViewController : UIViewController {
+@interface TCMainViewController : UIViewController<TCNavigateDelegate> {
 	
 	TCSlideView *IBSlideIn;
 	
 }
 
 @property (nonatomic, strong) IBOutlet TCSlideView *IBSlideIn;
+@property (nonatomic, strong) TCChatViewController *tvc;
+@property (nonatomic, strong) UINavigationController *uc;
+
+- (void) ShiftTo:(UIViewController *)vc;
 
 @end

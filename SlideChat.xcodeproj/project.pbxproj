@@ -20,6 +20,7 @@
 		647758B5173A2D3D00CAD453 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 647758B4173A2D3D00CAD453 /* Default.png */; };
 		647758B7173A2D3D00CAD453 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647758B6173A2D3D00CAD453 /* Default@2x.png */; };
 		647758B9173A2D3D00CAD453 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647758B8173A2D3D00CAD453 /* Default-568h@2x.png */; };
+		64B1B1E817957C110055DC58 /* TCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B1B1E717957C110055DC58 /* TCChatViewController.m */; };
 		64E20CC01746237E00B484E1 /* a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64E20CBF1746237E00B484E1 /* a.jpg */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		647758B4173A2D3D00CAD453 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		647758B6173A2D3D00CAD453 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		647758B8173A2D3D00CAD453 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		64B1B1E617957C110055DC58 /* TCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCChatViewController.h; sourceTree = "<group>"; };
+		64B1B1E717957C110055DC58 /* TCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCChatViewController.m; sourceTree = "<group>"; };
 		64E20CBF1746237E00B484E1 /* a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +80,8 @@
 				64177642173A309F00FB024F /* TCMainViewController.h */,
 				64177643173A309F00FB024F /* TCMainViewController.m */,
 				64177644173A309F00FB024F /* TCMainViewController.xib */,
+				64B1B1E617957C110055DC58 /* TCChatViewController.h */,
+				64B1B1E717957C110055DC58 /* TCChatViewController.m */,
 			);
 			name = SlideView;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				647758B3173A2D3D00CAD453 /* TCAppDelegate.m in Sources */,
 				64177645173A309F00FB024F /* TCMainViewController.m in Sources */,
 				64177650173A3F1700FB024F /* TCSlideView.m in Sources */,
+				64B1B1E817957C110055DC58 /* TCChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,5 @@
 #import "TCSlideView.h"
+#import "TCChatViewController.h"
 
 @implementation TCSlideView
 
@@ -28,12 +29,12 @@
     CGPoint fromPos;
     switch (side) {              
       case SlideInViewTop:
-        self.adjustY = self.imageSize.height;
+        self.adjustY = self.imageSize.height + 50;
         fromPos = CGPointMake(view.frame.size.width/2-self.imageSize.width/2,
                                -self.imageSize.height);
         break;
       case SlideInViewBot:
-         self.adjustY = -self.imageSize.height;
+         self.adjustY = -self.imageSize.height - 50;
          fromPos = CGPointMake(view.frame.size.width/2-self.imageSize.width/2,
                                view.bounds.size.height);
          break;
@@ -114,7 +115,9 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //点击后移除
-	[self popIn];
+	//[self popIn];
+    
+    [self.delegate ShiftTo:self.tvc];
 }
 
 
