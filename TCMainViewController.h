@@ -15,13 +15,15 @@
 @interface TCMainViewController : UIViewController<TCNavigateDelegate> {
 	
 	TCSlideView *IBSlideIn;
+    @private NSMutableArray *slideViews;
 	
 }
 
 @property (nonatomic, strong) IBOutlet TCSlideView *IBSlideIn;
+@property (nonatomic, strong) IBOutlet UIButton *IBRestBtn;
 @property (nonatomic, strong) TCChatViewController *tvc;
 @property (nonatomic, strong) UINavigationController *uc;
 
-- (void) ShiftTo:(UIViewController *)vc;
-
+- (void) shiftTo:(UIViewController *)vc;
+- (IBAction) rest:(id)sender;
 @end

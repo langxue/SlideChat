@@ -169,6 +169,11 @@
 				CLASSPREFIX = TC;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = langxue;
+				TargetAttributes = {
+					6477589E173A2D3D00CAD453 = {
+						DevelopmentTeam = 57M7SNWYE3;
+					};
+				};
 			};
 			buildConfigurationList = 6477589A173A2D3D00CAD453 /* Build configuration list for PBXProject "SlideChat" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -291,10 +296,13 @@
 		647758C6173A2D3D00CAD453 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideChat/SlideChat-Prefix.pch";
 				INFOPLIST_FILE = "SlideChat/SlideChat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -302,10 +310,13 @@
 		647758C7173A2D3D00CAD453 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SlideChat/SlideChat-Prefix.pch";
 				INFOPLIST_FILE = "SlideChat/SlideChat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

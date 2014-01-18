@@ -19,12 +19,17 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.tvc = [[TCChatViewController alloc] init];
+        slideViews = [NSMutableArray array];
     }
     return self;
 }
 
+- (void)rest:(id)sender{
+    [self resetSlideIn:self.view];
+}
 
-- (void)ShiftTo:(UIViewController *)viewController{
+
+- (void)shiftTo:(UIViewController *)viewController{
     [self.navigationController setNavigationBarHidden:NO];
     //[[self navigationController] pushViewController:vc animated:YES];
     CATransition *animation = [CATransition animation];
@@ -39,11 +44,6 @@
 }
 
 - (void) createSlideIn:(UIView *) view {
-    //如果是局部变量，为什么在方法调用完后这些View还存在？
-    TCSlideView *downSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
-    //因为他们被加入 self.view里了
-	[downSlideIn showWithTimer:1.25 inView:view from:SlideInViewBot bounce:YES];
-    
 	TCSlideView *leftSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
 	[leftSlideIn showWithTimer:1 inView:view from:SlideInViewLeft bounce:NO];
     
@@ -54,6 +54,16 @@
     
 	TCSlideView *topSlideIn = [TCSlideView viewWithImage:[UIImage imageNamed:@"a.jpg"]];
 	[topSlideIn showWithTimer:1.25 inView:view from:SlideInViewTop bounce:YES];
+    
+    [slideViews addObject:leftSlideIn];
+    [slideViews addObject:rightSlideIn];
+    [slideViews addObject:topSlideIn];
+}
+
+- (void) resetSlideIn:(UIView *) view {
+    for (TCSlideView *sldeView in slideViews) {
+        [sldeView showWithTimer:1.25 inView:view from:sldeView.type bounce:YES];
+    }
 }
 
 

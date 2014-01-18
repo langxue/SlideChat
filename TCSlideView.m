@@ -6,6 +6,7 @@
 @synthesize adjustY;
 @synthesize adjustX;
 @synthesize imageSize;
+@synthesize type;
 
 
 //实例化视图并设置其下面的层的contents属性指向UIImage。视图的位置设置为屏幕之外
@@ -51,6 +52,8 @@
       default:
          return;
 	}
+    
+    self.type = side;
 	
     if (bounce) {
         
@@ -114,10 +117,12 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    //点击后移除
-	//[self popIn];
+    if (self.type != SlideInViewRight) {
+        //点击后移除
+        [self popIn];
+    }
     
-    [self.delegate ShiftTo:self.tvc];
+    [self.delegate shiftTo:self.tvc];
 }
 
 

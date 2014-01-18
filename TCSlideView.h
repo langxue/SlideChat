@@ -11,7 +11,7 @@ typedef enum {
 
 @protocol TCNavigateDelegate <NSObject>
 @optional
-- (void)ShiftTo:(UIViewController *)vc;
+- (void)shiftTo:(UIViewController *)vc;
 @end
 
 
@@ -19,6 +19,7 @@ typedef enum {
 
 @property CGFloat adjustY;
 @property CGFloat adjustX;
+@property SlideInViewSide type;
 @property CGSize imageSize;
 @property (nonatomic, weak) id<TCNavigateDelegate> delegate;
 @property (nonatomic, strong) TCChatViewController *tvc;
